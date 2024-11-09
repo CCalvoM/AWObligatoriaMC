@@ -1,0 +1,22 @@
+{
+  "name": "awobligatoriamc",
+  "version": "1.0.0",
+  "description": "Aplicación Web para la gestión de eventos universitarios",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parse": "^0.1.0",
+    "ejs": "^3.1.10",
+    "express-mysql-session": "^3.0.3",
+    "express-session": "^1.18.1",
+    "express.js": "^1.0.0",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "underscore": "^1.13.7"
+  }
+}
