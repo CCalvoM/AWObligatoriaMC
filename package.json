@@ -1,17 +1,19 @@
 {
-  "name": "awobligatoriamc",
+  "name": "awobligatoria",
   "version": "1.0.0",
   "description": "Aplicación Web para la gestión de eventos universitarios",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./app.js"
+    "_comment": "Reinicia automaticamente la Aplicación tras cambios",
+    "start": "node --watch app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parse": "^0.1.0",
     "ejs": "^3.1.10",
+    "express": "^4.21.1",
     "express-mysql-session": "^3.0.3",
     "express-session": "^1.18.1",
     "express.js": "^1.0.0",
