@@ -25,6 +25,19 @@ app.get('/', (req, res) => {
     res.render("login") 
 })
 
+app.get('/login', (req, res) => {
+    res.render('login')
+})
+
+app.get('/register', (req, res) => {
+        // Probando con facultades
+        const facultades = [
+            { id: '1', nombre: 'Informática' },
+            { id: '2', nombre: 'Derecho' }
+        ];
+        res.render('register', { facultades });
+})
+
 //  EJECUTAMOS EL SERVIDOR
 app.listen(PORT, () => {
     console.log(`Servidor ejecutando en el puerto http://localhost:${PORT}`)

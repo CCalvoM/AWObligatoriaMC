@@ -10,23 +10,22 @@
 </head>
 <body> 
     <!-- Le podriamos meter aquí un header(? : (ver idead de inicio de sesión)-->
-
+ 
     <div id="formLogin" class="d-flex justify-content-center vh-100">
         <div class="col-lg-6 col-md-8 col-12 p-4">
             <br>
             <h1 class="text-center"> Inicio de Sesión </h1>
 
-    <br>
+            <br>
             <div class="form-group mt-5">
-                <label for="correo"> Correo UCM </label>
-                <input type="email" class="form-control" id="correo" name="correo" placeholder="usuario@ucm.es" pattern="^[a-zA-ZñÑ0-9._%+-]+@ucm\.es$" required>
-                <small id="emailHelp" class="form-text text-muted">Mantenga su correo UCM.</small>
+                <label for="username"> Nombre de Usuario</label>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Nombre de usuario" required>
                 
                 <div class="valid-feedback">
                     Todo correcto!
                 </div>
                 <div class="invalid-feedback">
-                    Campo obligatorio. Se necesita meter un correo UCM.
+                    Campo obligatorio.
                 </div>
             </div>
     
@@ -42,10 +41,10 @@
                 </div>
             </div>
     
-            <button type="submit" class="btn btn-primary" href=""> Iniciar Sesión </button>
+            <button type="submit" class="btn btn-primary"> Iniciar Sesión </button>
     
-            <p> ¿No esta registrado? 
-                <a href="">Regístrese aquí</a>
+            <p> ¿No está registrado? 
+                <a href="/register">Regístrese aquí</a>
             </p>
         </div>
 

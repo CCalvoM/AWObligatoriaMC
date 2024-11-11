@@ -10,6 +10,7 @@ CREATE TABLE Usuarios (
     correo VARCHAR(30) 	UNIQUE NOT NULL,
     rol ENUM('organizador', 'asistente') NOT NULL,
     id_facultad INT,
+    username VARCHAR(50) UNIQUE NOT NULL;
     FOREIGN KEY (id_facultad) REFERENCES Facultades(id)
 );
 
@@ -54,12 +55,12 @@ INSERT INTO Facultades (nombre) VALUES
 ('Facultad de Medicina');
 
 -- Inserciones en la tabla Usuarios
-INSERT INTO Usuarios (nombre, correo, telefono, id_facultad, rol) VALUES 
-('Mario Campos', 'mariocam@ucm.es', '123456789', 1, 'organizador'),
-('Elisa Campos', 'elisacam@ucm.es', '987654321', 2, 'asistente'),
-('Cristina Zuazu', 'criszuazu@ucm.es', '456789123', 3, 'organizador'),
-('Ivan Jimenez', 'ivansueiro@ucm.es', '321654987', 4, 'asistente'),
-('Alvaro Elizalde', 'alvelizal@ucm.es', '654123987', 5, 'asistente');
+INSERT INTO Usuarios (nombre, correo, telefono, id_facultad, rol, username) VALUES 
+('Mario Campos', 'mariocam@ucm.es', '123456789', 1, 'organizador', 'mariete248'),
+('Elisa Campos', 'elisacam@ucm.es', '987654321', 2, 'asistente', 'midgetelisa'),
+('Cristina Zuazu', 'criszuazu@ucm.es', '456789123', 3, 'organizador', 'criszuu03'),
+('Ivan Jimenez', 'ivansueiro@ucm.es', '321654987', 4, 'asistente', 'ivansito'),
+('Alvaro Elizalde', 'alvelizal@ucm.es', '654123987', 5, 'asistente', 'clavoman');
 
 -- Inserciones en la tabla Eventos
 INSERT INTO Eventos (titulo, descripcion, fecha, hora, ubicacion, capacidad_maxima, organizador_id) VALUES 

@@ -1,0 +1,5 @@
+----------------INICIO + REGISTRO--------------------
+1. Campo contraseña en usuarios --> Falta?
+2. Validaciones (al registar y logear)
+3. Encriptar constraseña
+4. Necesitamos permitir la recuperación de contraseña
