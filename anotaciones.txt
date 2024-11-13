@@ -1,5 +1,7 @@
 ----------------INICIO + REGISTRO--------------------
-1. Campo contraseña en usuarios --> Falta?
-2. Validaciones (al registar y logear)
-3. Encriptar constraseña
-4. Necesitamos permitir la recuperación de contraseña
+1. Validaciones (al registar y logear) : Clase aparte?
+2. Necesitamos permitir la recuperación de contraseña
+3. Me salta error al encryptar la contraseña : Preguntar a estos
+
+---------------CONTRASEÑAS/USUARIO-------------------
+Javier Campos: bebesita

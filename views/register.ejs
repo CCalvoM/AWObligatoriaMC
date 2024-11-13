@@ -10,101 +10,121 @@
 <body>
     
     <div id="form-register">
-        <br>
-        <h1 class="text-center"> Registro de Usuario </h1>
+        <form action="/register" method="post" class="needs-validation" novalidate>
+            <br>
+            <h1 class="text-center"> Registro de Usuario </h1>
 
-        <div class="form-group">
-            <label for="nombre"> Nombre: </label>
-            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Introduzca su nombre" pattern="[A-Za-zÀ-ÿ\s]+" required>
+            <div class="form-group">
+                <label for="nombre"> Nombre: </label>
+                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Introduzca su nombre" pattern="[A-Za-zÀ-ÿ\s]+" required>
 
-            <div class="valid-feedback">
-                Todo correcto!
+                <div class="valid-feedback">
+                    Todo correcto!
+                </div>
+                <div class="invalid-feedback">
+                    Campo obligatorio. Únicamente letras
+                </div>
+
+                <label for="apellidos"> Apellidos: </label>
+                <input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Introduzca sus apellidos" pattern="[A-Za-zÀ-ÿ\s]+" required>
+                
+                <div class="valid-feedback">
+                    Todo correcto!
+                </div>
+                <div class="invalid-feedback">
+                    Campo obligatorio. Únicamente letras
+                </div>
             </div>
-            <div class="invalid-feedback">
-                Campo obligatorio. Únicamente letras
+
+            <div class="form-group">
+                <label for="correo"> Correo UCM</label>
+                <input type="email" class="form-control" id="correo" name="correo" placeholder="usuario@ucm.es" pattern="^[a-zA-ZñÑ0-9._%+-]+@ucm\.es$" required>
+                <small id="emailHelp" class="form-text form-muted"> Obligatorio: correo UCM.</small>
+                
+                <div class="valid-feedback">
+                    Todo correcto!
+                </div>
+                <div class="invalid-feedback">
+                    Campo obligatorio. Se necesita meter un correo UCM.
+                </div>
             </div>
 
-            <label for="apellidos"> Apellidos: </label>
-            <input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Introduzca sus apellidos" pattern="[A-Za-zÀ-ÿ\s]+" required>
-            
-            <div class="valid-feedback">
-                Todo correcto!
+            <div class="form-group">
+                <label for="telefono"> Teléfono: </label>
+                <input type="text" class="form-control" id="telefono" name="telefono" placeholder="(+34) 657 933 381" pattern="^(\+34\s?)?(\d\s?){9}$" required>
+                <small id="telHelp" class="form-text form-muted"> Obligatorio: Número nacional (+34)</small>
             </div>
-            <div class="invalid-feedback">
-                Campo obligatorio. Únicamente letras
+
+            <div class="form-group">
+                <label for="facultad"> Facultad</label>
+                <select class="form-select" id="facultad" name="facultad" required>
+                    <option selected>Abre el menú de Facultades</option>
+                    <% facultades.forEach(facultad => { %>
+                        <option value="<%=facultad.id%>"><%=facultad.nombre%></option>
+                    <% }) %>
+                </select>
             </div>
-        </div>
 
-        <div class="form-group">
-            <label for="correo"> Correo UCM</label>
-            <input type="email" class="form-control" id="correo" name="correo" placeholder="usuario@ucm.es" pattern="^[a-zA-ZñÑ0-9._%+-]+@ucm\.es$" required>
-            <small id="emailHelp" class="form-text form-muted"> Obligatorio: correo UCM.</small>
-            
-            <div class="valid-feedback">
-                Todo correcto!
+            <div class="form-group">
+                <label for="user"> Tipo de Usuario</label>
+                <select class="form-select" id="user" name="user" required>
+                    <option selected>Establezca el tipo de usuario</option>
+                    <option value="organizador">Organizador</option>
+                    <option value="asistente">Asistente</option>
+                </select>
             </div>
-            <div class="invalid-feedback">
-                Campo obligatorio. Se necesita meter un correo UCM.
+
+            <div class="form-group">
+                <label for="username"> Username: </label>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Ejemplo: lil_tecca_123" required>
+
+                <div class="valid-feedback">
+                    Todo correcto!
+                </div>
+                <div class="invalid-feedback">
+                    Campo obligatorio. Únicamente letras
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            <label for="telefono"> Teléfono: </label>
-            <input type="text" class="form-control" id="telefono" name="telefono" placeholder="(+34) 657 933 381" patter="^(\+34\s?)?(\d\s?){9}$" required>
-            <small id="telHelp" class="form-text form-muted"> Obligatorio: Número nacional (+34)</small>
-        </div>
+            <div class="form-group">
+                <label for="contrasena"> Contraseña: </label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
 
-        <div class="form-group">
-            <label for="facultad"> Facultad</label>
-            <select class="form-select" id="facultad" name="facultad" required>
-                <option selected>Abre el menú de Facultades</option>
-                <% facultades.forEach(facultad => { %>
-                    <option value="<%=facultad.id%>"><%=facultad.nombre%></option>
-                <% }) %>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label for="user"> Tipo de Usuario</label>
-            <select class="form-select" id="user" name="user" required>
-                <option selected>Establezca el tipo de usuario</option>
-                <option value="organizador">Organizador</option>
-                <option value="asistente">Asistente</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label for="username"> Username: </label>
-            <input type="text" class="form-control" id="username" name="username" placeholder="Ejemplo: lil_tecca_123" required>
-
-            <div class="valid-feedback">
-                Todo correcto!
+                <div class="valid-feedback">
+                    Todo correcto!
+                </div>
+                <div class="invalid-feedback">
+                    Campo Obligatorio.
+                </div>
             </div>
-            <div class="invalid-feedback">
-                Campo obligatorio. Únicamente letras
-            </div>
-        </div>
 
-        <div class="form-group">
-            <label for="contrasena"> Contraseña: </label>
-            <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+            <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="modal_registro">
+                Registrarse 
+            </button>
 
-            <div class="valid-feedback">
-                Todo correcto!
-            </div>
-            <div class="invalid-feedback">
-                Campo Obligatorio.
-            </div>
-        </div>
-
-        <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="modal_registro">
-             Registrarse 
-        </button>
-
-        <p> ¿Ya está registrado? 
-            <a href="/login">Volver a login aquí</a>
-        </p>
-
+            <p> ¿Ya está registrado? 
+                <a href="/login">Volver a login aquí</a>
+            </p>
+        </form>
     </div>
 </body>
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (() => {
+        'use strict'
+
+        // Fetch the form we want to apply custom Bootstrap validation styles to
+        const form = document.querySelector('.needs-validation')
+
+        // Prevent form submission if it is invalid
+        form.addEventListener('submit', event => {
+            if (!form.checkValidity()) {
+                event.preventDefault()  // Prevent the form from submitting
+                event.stopPropagation() // Stop further event propagation
+            }
+
+            form.classList.add('was-validated') // Add Bootstrap class to show validation feedback
+        }, false)
+    })()
+</script>
 </html>

@@ -11,6 +11,7 @@ CREATE TABLE Usuarios (
     rol ENUM('organizador', 'asistente') NOT NULL,
     id_facultad INT,
     username VARCHAR(50) UNIQUE NOT NULL;
+    contrasena VARCHAR(255) NOT NULL DEFAULT 'default_password';
     FOREIGN KEY (id_facultad) REFERENCES Facultades(id)
 );
 
