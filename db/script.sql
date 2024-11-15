@@ -45,6 +45,11 @@ CREATE TABLE Configuracion_Accesibilidad (
 	FOREIGN KEY (id_usuario) REFERENCES Usuarios(id)
 );
 
+CREATE TABLE lista_negra_ips (
+    id SERIAL PRIMARY KEY,
+    dir_ip VARCHAR(50) UNIQUE NOT NULL
+);
+
 ----------------------------------------------------------------------------------------
 
 -- Inserciones en la tabla Facultades

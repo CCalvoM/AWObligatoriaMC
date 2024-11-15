@@ -9,7 +9,7 @@ class DAOUsuario {
                 callback(new Error("ERROR : Error conectando a la base de datos"))
             else {
                 const query = 'INSERT INTO usuarios (id, nombre, telefono, correo, rol, id_facultad, username, contrasena) VALUES (?, ?, ?, ?, ?, ?, ?, ?)'
-                connection.query(query, [user.id, user.nombre, user.telefono, user.correo, user.rol, user.id_facultad, user.username, user.contrasena],
+                connection.query(query, [user.id, user.nombre, user.telefono, user.correo, user.user, user.facultad, user.username, user.password],
                     (error, res) => {
                         connection.release()
 

@@ -1,0 +1,49 @@
+const { body, validationResult } = require('express-validator');
+const mysql = require('mysql')
+const pool = mysql.createPool(config)
+
+async function isBlocked(req, res, next) {
+    pool.getConnection((err, connection) => {
+        if(err)
+            return res.status(500).send("ERROR : Error conectando a la base de datos")
+
+        const ip = req.ip
+        const query = 'SELECT COUNT(*) FROM lista_negra_ips WHERE dir_ip = ?'
+
+        connection.query(query, [ip], 
+            (error, result) => {
+                connection.release()
+
+                if(error)
+                    return result.status(500).send("ERROR : Error buscando ip en la BBDD")
+               
+                if(res[0].count)
+                    return result.status(403).send('Acceso denegado: esta IP está bloqueada.');
+
+                next()
+            })
+    })
+}
+
+async function detectSQLInjection(req, res, next) {
+    const ip = req.ip;
+    const { username, password } = req.body;
+
+    const sqlInjectionPattern = /['";--]|(\b(SELECT|INSERT|UPDATE|DELETE|DROP|ALTER)\b)/i;
+    if (sqlInjectionPattern.test(username) || sqlInjectionPattern.test(password)) { // Bloquea la IP si detectamos un intento de inyección SQL
+        
+        pool.getConnection((err, connection) => {
+            if(err)
+                return res.status(500).send("ERROR : Error conectando a la base de datos")
+
+            const query = 'INSERT INTO lista_negra_ips (dir_ip) VALUES (?)'
+            connection.query(query, [ip], (error, result) => {
+                if(error)
+                    return result.status(500).send("ERROR : Error metiendo ip en la BBDD")
+
+                return res.status(403).send('Acceso denegado: intento de inyección SQL detectado.');
+            })
+        })
+    }
+    next();
+}

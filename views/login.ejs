@@ -17,32 +17,34 @@
             <h1 class="text-center"> Inicio de Sesión </h1>
 
             <br>
-            <div class="form-group mt-5">
-                <label for="username"> Nombre de Usuario</label>
-                <input type="text" class="form-control" id="username" name="username" placeholder="Nombre de usuario" required>
-                
-                <div class="valid-feedback">
-                    Todo correcto!
+            <form action="/login" method="POST">
+                <div class="form-group mt-5">
+                    <label for="correo"> Correo UCM</label>
+                    <input type="email" class="form-control" id="correo" name="correo" placeholder="usuario@ucm.es" pattern="^[a-zA-ZñÑ0-9._%+-]+@ucm\.es$" required>
+                    <small id="emailHelp" class="form-text form-muted"> Obligatorio: correo UCM.</small>
+                    
+                    <div class="valid-feedback">
+                        Todo correcto!
+                    </div>
+                    <div class="invalid-feedback">
+                        Campo obligatorio. Se necesita meter un correo UCM.
+                    </div>
                 </div>
-                <div class="invalid-feedback">
-                    Campo obligatorio.
+        
+                <div class="form-group mt-3 mb-3">
+                    <label for="password"> Contraseña </label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+        
+                    <div class="valid-feedback">
+                        Todo correcto!
+                    </div>
+                    <div class="invalid-feedback">
+                        Campo obligatorio.
+                    </div>
                 </div>
-            </div>
-    
-            <div class="form-group mt-3 mb-3">
-                <label for="password"> Contraseña </label>
-                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
-    
-                <div class="valid-feedback">
-                    Todo correcto!
-                </div>
-                <div class="invalid-feedback">
-                    Campo obligatorio.
-                </div>
-            </div>
-    
-            <button type="submit" class="btn btn-primary"> Iniciar Sesión </button>
-    
+        
+                <button type="submit" class="btn btn-primary"> Iniciar Sesión </button>
+            </form>
             <p> ¿No está registrado? 
                 <a href="/register">Regístrese aquí</a>
             </p>

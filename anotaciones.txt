@@ -1,7 +1,11 @@
 ----------------INICIO + REGISTRO--------------------
-1. Validaciones (al registar y logear) : Clase aparte?
-2. Necesitamos permitir la recuperación de contraseña
-3. Me salta error al encryptar la contraseña : Preguntar a estos
+Guardar la sesión del usuario tras inicio de sesión (express-session) --> Debería estar pero falta comprobar
+Permitir la recuperación de contraseña
+Blouear IPs que me intentan inyectar SQL : Express-validator
 
 ---------------CONTRASEÑAS/USUARIO-------------------
 Javier Campos: bebesita
+Isabel Sobrino : isabelita
+
+-----------------------------FALLOS------------------
+No me deja loguear: Error: Access denied for user 'root'@'localhost' (using password: NO)
